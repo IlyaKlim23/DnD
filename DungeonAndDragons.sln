@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonAndDragons.Core", "DungeonAndDragons.Core\DungeonAndDragons.Core.csproj", "{FC347310-5D48-480D-9C72-0622C2809AEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonAndDragons.UI", "DungeonAndDragons.UI\DungeonAndDragons.UI.csproj", "{ACB408A2-65E9-4116-BFED-44890902C1A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC347310-5D48-480D-9C72-0622C2809AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC347310-5D48-480D-9C72-0622C2809AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC347310-5D48-480D-9C72-0622C2809AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC347310-5D48-480D-9C72-0622C2809AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACB408A2-65E9-4116-BFED-44890902C1A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACB408A2-65E9-4116-BFED-44890902C1A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACB408A2-65E9-4116-BFED-44890902C1A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACB408A2-65E9-4116-BFED-44890902C1A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

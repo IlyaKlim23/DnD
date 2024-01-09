@@ -1,0 +1,60 @@
+﻿@using System.ComponentModel
+@using DungeonAndDragons.Core.Entities
+@using DungeonAndDragons.Core.Enums
+@model DungeonAndDragons.Core.Models.BattleResultModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="card">
+    <form class="card-body" method="post">
+        @foreach (var property in typeof(Player).GetProperties())
+        {
+            @Html.Label(property.GetCustomAttributes(true)
+                .Select(a => (a as DisplayNameAttribute)?.DisplayName)
+                .FirstOrDefault(name => name is not null) ?? property.Name)
+            @Html.Editor(property.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessage(property.Name, new { @class = "text text-danger" })
+            <br/>
+        }
+        <input type="submit" class="btn btn-primary" value="Battle"/>
+    </form>
+</div>
+
+
+@if (Model is not null)
+{
+    <div style="border: 1px solid black; border-radius: 1em; margin: 10px; padding: 5px">
+        <div>Монстр: @Model.Enemy.Name</div>
+        <div>Броня монстра: @Model.Enemy.ArmorClass</div>
+        <div>Модификатор урона: @Model.Enemy.DamageModifier</div>
+    </div>
+    
+    
+        @foreach (var action in Model.Logs)
+        {
+            <div style="border: 1px solid black; border-radius: 1em; margin: 10px; padding: 5px">
+            <h2>@action.ParticipantName</h2>
+            @for (int i = 0; i < action.DiceRoll.Length; i++)
+            {
+                <h5>@(i+1)</h5>
+                <div style="margin-bottom: 5px">
+                <div style="border: 1px solid black"> d20 + модификатор атаки: @action.DiceRoll[i] + @action.AttackModifier</div>
+                <div style="border: 1px solid black"> @action.Hit[i] </div>
+                <div style="border: 1px solid black">Урон: @action.Damage[i] по @action.EnemyName</div>
+                <div style="border: 1px solid black">Здоровье противника: @action.EnemyName (@action.EnemyHp[i])</div>
+                </div>  
+            }
+            </div>
+        }
+
+        <div>
+            Победитель:
+            <div>
+                 @(Model.Winner == Participants.User
+                    ? Model.Player?.Name
+                    : Model.Enemy?.Name)
+            </div>
+        </div>
+    }
+
