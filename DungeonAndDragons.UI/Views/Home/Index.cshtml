@@ -27,6 +27,7 @@
     <div style="border: 1px solid black; border-radius: 1em; margin: 10px; padding: 5px">
         <div>Монстр: @Model.Enemy.Name</div>
         <div>Броня монстра: @Model.Enemy.ArmorClass</div>
+        <div>Урон монстра: @Model.Enemy.Damage</div>
         <div>Модификатор урона: @Model.Enemy.DamageModifier</div>
     </div>
     
@@ -39,8 +40,8 @@
             {
                 <h5>@(i+1)</h5>
                 <div style="margin-bottom: 5px">
-                <div style="border: 1px solid black"> d20 + модификатор атаки: @action.DiceRoll[i] + @action.AttackModifier</div>
-                <div style="border: 1px solid black"> @action.Hit[i] </div>
+                <div style="border: 1px solid black">Атака: @action.DiceRoll[i] + @action.AttackModifier</div>
+                <div style="border: 1px solid black">@action.Hit[i]</div>
                 <div style="border: 1px solid black">Урон: @action.Damage[i] по @action.EnemyName</div>
                 <div style="border: 1px solid black">Здоровье противника: @action.EnemyName (@action.EnemyHp[i])</div>
                 </div>  
